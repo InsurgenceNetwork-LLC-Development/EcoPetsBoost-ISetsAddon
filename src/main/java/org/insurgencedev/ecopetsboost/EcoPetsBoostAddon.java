@@ -1,20 +1,17 @@
 package org.insurgencedev.ecopetsboost;
 
-import org.bukkit.Bukkit;
+import org.insurgencedev.ecopetsboost.listeners.PetExperienceGainListener;
 import org.insurgencedev.insurgencesets.api.addon.ISetsAddon;
 import org.insurgencedev.insurgencesets.api.addon.InsurgenceSetsAddon;
+import org.insurgencedev.insurgencesets.libs.fo.Common;
 
-@ISetsAddon(name = "EcoPetsBoost", version = "1.0.0", author = "Insurgence Dev Team", description = "Boost the pet experience earned from EcoPets")
+@ISetsAddon(name = "EcoPetsBoost", version = "1.0.1", author = "Insurgence Dev Team", description = "Boost the pet experience earned from EcoPets")
 public class EcoPetsBoostAddon extends InsurgenceSetsAddon {
 
     @Override
     public void onAddonReloadablesStart() {
-        if (isDependentEnabled()) {
+        if (Common.doesPluginExist("EcoPets")) {
             registerEvent(new PetExperienceGainListener());
         }
-    }
-
-    private boolean isDependentEnabled() {
-        return Bukkit.getPluginManager().isPluginEnabled("EcoPets");
     }
 }

@@ -7,7 +7,7 @@ Using the below settings, the player's pet will receive a 200% boost on the amou
 
 ```yaml
 Boosts:
-  - Namespace: MISC
+  - Namespace: ECO_PETS
     Type: Pets
     Percent: true
     Settings:
